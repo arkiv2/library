@@ -14,6 +14,11 @@ class Student extends Authenticable
     	return $this->hasMany('App\Book', 'borrowed_books')
     }
 
+    public function borrowBook(Book $book)
+    {
+    	$this->booksBorrowed->toggle($book->id);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
